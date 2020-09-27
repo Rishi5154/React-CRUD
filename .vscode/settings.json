@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/Users/rishi/.local/share/virtualenvs/django-todo-react-2A4w05Xr/bin/python",
+    // to resolve rest_framework import issues
+    "python.autoComplete.extraPaths": ["/Users/rishi/.local/share/virtualenvs/django-todo-react-2A4w05Xr/bin/python"]
+}
