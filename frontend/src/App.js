@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Modal from "./components/Modal";
+import CustomModal from "./components/Modal";
 import axios from "axios";
 
 class App extends Component {
@@ -18,12 +18,23 @@ class App extends Component {
   componentDidMount() {
     this.refreshList();
   }
+
   refreshList = () => {
     axios
       .get("http://localhost:8000/api/todos/")
       .then(res => this.setState({ todoList: res.data }))
       .catch(err => console.log(err));
   };
+
+  // refreshList = () => {
+  //   useEffect(() => {
+  //     axios
+  //     .get("http://localhost:8000/api/todos/")
+  //     .then(res => this.setState({ todoList: res.data }))
+  //     .catch(err => console.log(err));
+  //   })
+  // }
+
   displayCompleted = status => {
     if (status) {
       return this.setState({ viewCompleted: true });
@@ -130,13 +141,13 @@ class App extends Component {
             </div>
           </div>
         </div>
-        {this.state.modal ? (
-          <Modal
+        { this.state.modal ? (
+          <CustomModal
             activeItem={this.state.activeItem}
             toggle={this.toggle}
             onSave={this.handleSubmit}
           />
-        ) : null}
+        ) : null} 
       </main>
     );
   }
